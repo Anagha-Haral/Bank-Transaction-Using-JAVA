@@ -1,0 +1,42 @@
+CREATE TABLE BankTrans
+       (TransId NUMBER PRIMARY KEY,
+        AcctNo NUMBER NOT NULL,
+        OldBal NUMBER,
+	TransType VARCHAR2(1),
+	TransAmt NUMBER,
+	NewBal NUMBER,
+        TransStat VARCHAR2(7)
+	);
+
+
+CREATE SEQUENCE Trans_Seq
+START WITH 1000
+INCREMENT BY 1
+CACHE 100;
+
+
+
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 123456789,10000,'D',5000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 987654321,50000,'W',25000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 135792468,155000,'W',100000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 246801357,600000,'W',20000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 123452468,75000,'D',15000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 983446582,90000,'W',70000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 901105156,65000,'W',55000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 986047556,25000,'D',5000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 774497725,5000,'D',10000);
+INSERT INTO BankTrans(TransID, AcctNo, OldBal, TransType, TransAmt) VALUES(Trans_Seq.nextval, 120934875,20000,'W',25000);
+
+CREATE TABLE ValidTrans
+       (TransID NUMBER PRIMARY KEY,
+	TransType VARCHAR2(1),
+	TransAmt NUMBER,
+        Validity VARCHAR2(5)
+	);
+
+CREATE TABLE InvalidTrans
+       (TransID NUMBER PRIMARY KEY,
+	TransType VARCHAR2(1),
+	TransAmt NUMBER,
+        Validity VARCHAR2(7)
+	);
